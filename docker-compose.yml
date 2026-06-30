@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: prescient_development
+      POSTGRES_USER: prescient
+      POSTGRES_PASSWORD: prescient
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prescient -d prescient_development"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./api
+    volumes:
+      - ./data:/app/data:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://prescient:prescient@db/prescient_development
+      RAILS_ENV: development
+
+volumes:
+  postgres_data:

@@ -1,0 +1,51 @@
+id,company_id,brand_id,platform_name,campaign_id,campaign_name,created_at,updated_at
+1,C1,B1,facebook_ads,campaign_1,Advantage + Series Launch,2023-10-25 13:05:54,2023-10-25 13:05:54
+2,C1,B1,facebook_ads,campaign_2,New Engagement Campaign,2023-10-26 13:05:54,2023-10-26 13:05:54
+3,C1,B1,facebook_ads,campaign_3,Reach - 5 Reasons List,2023-10-27 13:05:54,2023-10-27 13:05:54
+4,C1,B1,google_ads,campaign_4,Brand Search,2023-10-28 13:05:54,2023-10-28 13:05:54
+5,C1,B1,google_ads,campaign_5,Non-brand Search,2023-10-29 13:05:54,2023-10-29 13:05:54
+6,C1,B1,google_ads,campaign_6,PMAX Campaign,2023-10-30 13:05:54,2023-10-30 13:05:54
+7,C1,B1,pinterest_ads,campaign_7,Inspire & Create Campaign,2023-10-31 13:05:54,2023-10-31 13:05:54
+8,C1,B1,pinterest_ads,campaign_8,Pin It to Win It Campaign,2023-11-01 13:05:54,2023-11-01 13:05:54
+9,C1,B1,pinterest_ads,campaign_9,Pinfluence Campaign,2023-11-02 13:05:54,2023-11-02 13:05:54
+10,C1,B1,pinterest_ads,campaign_10,Dreampin Campaign,2023-11-03 13:05:54,2023-11-03 13:05:54
+11,C1,B2,facebook_ads,campaign_1,Advantage + Series Launch,2023-11-04 13:05:54,2023-11-04 13:05:54
+12,C1,B2,facebook_ads,campaign_2,New Engagement Campaign,2023-11-05 13:05:54,2023-11-05 13:05:54
+13,C1,B2,facebook_ads,campaign_3,Reach - 5 Reasons List,2023-11-06 13:05:54,2023-11-06 13:05:54
+14,C1,B2,google_ads,campaign_4,Brand Search,2023-11-07 13:05:54,2023-11-07 13:05:54
+15,C1,B2,google_ads,campaign_5,Non-brand Search,2023-11-08 13:05:54,2023-11-08 13:05:54
+16,C1,B2,google_ads,campaign_6,PMAX Campaign,2023-11-09 13:05:54,2023-11-09 13:05:54
+17,C1,B2,pinterest_ads,campaign_7,Inspire & Create Campaign,2023-11-10 13:05:54,2023-11-10 13:05:54
+18,C1,B2,pinterest_ads,campaign_8,Pin It to Win It Campaign,2023-11-11 13:05:54,2023-11-11 13:05:54
+19,C1,B2,pinterest_ads,campaign_9,Pinfluence Campaign,2023-11-12 13:05:54,2023-11-12 13:05:54
+20,C1,B2,pinterest_ads,campaign_10,Dreampin Campaign,2023-11-13 13:05:54,2023-11-13 13:05:54
+21,C1,B3,facebook_ads,campaign_1,Advantage + Series Launch,2023-11-14 13:05:54,2023-11-14 13:05:54
+22,C1,B3,facebook_ads,campaign_2,New Engagement Campaign,2023-11-15 13:05:54,2023-11-15 13:05:54
+23,C1,B3,facebook_ads,campaign_3,Reach - 5 Reasons List,2023-11-16 13:05:54,2023-11-16 13:05:54
+24,C1,B3,google_ads,campaign_4,Brand Search,2023-11-17 13:05:54,2023-11-17 13:05:54
+25,C1,B3,google_ads,campaign_5,Non-brand Search,2023-11-18 13:05:54,2023-11-18 13:05:54
+26,C1,B3,google_ads,campaign_6,PMAX Campaign,2023-11-19 13:05:54,2023-11-19 13:05:54
+27,C1,B3,pinterest_ads,campaign_7,Inspire & Create Campaign,2023-11-20 13:05:54,2023-11-20 13:05:54
+28,C1,B3,pinterest_ads,campaign_8,Pin It to Win It Campaign,2023-11-21 13:05:54,2023-11-21 13:05:54
+29,C1,B3,pinterest_ads,campaign_9,Pinfluence Campaign,2023-11-22 13:05:54,2023-11-22 13:05:54
+30,C1,B3,pinterest_ads,campaign_10,Dreampin Campaign,2023-11-23 13:05:54,2023-11-23 13:05:54
+31,C2,B4,facebook_ads,campaign_11,Random campaign name 1,2023-11-24 13:05:54,2023-11-24 13:05:54
+32,C2,B4,facebook_ads,campaign_12,Random campaign name 2,2023-11-25 13:05:54,2023-11-25 13:05:54
+33,C2,B4,google_ads,campaign_13,Random campaign name 3,2023-11-26 13:05:54,2023-11-26 13:05:54
+34,C2,B4,google_ads,campaign_14,Random campaign name 4,2023-11-27 13:05:54,2023-11-27 13:05:54
+35,C2,B4,pinterest_ads,campaign_15,Random campaign name 5,2023-11-28 13:05:54,2023-11-28 13:05:54
+36,C2,B4,pinterest_ads,campaign_16,Random campaign name 6,2023-11-29 13:05:54,2023-11-29 13:05:54
+37,C2,B4,facebook_ads,campaign_17,Random campaign name 7,2023-11-30 13:05:54,2023-11-30 13:05:54
+38,C2,B4,facebook_ads,campaign_18,Random campaign name 8,2023-12-01 13:05:54,2023-12-01 13:05:54
+39,C2,B4,google_ads,campaign_19,Random campaign name 9,2023-12-02 13:05:54,2023-12-02 13:05:54
+40,C2,B4,google_ads,campaign_20,Random campaign name 10,2023-12-03 13:05:54,2023-12-03 13:05:54
+41,C3,B6,pinterest_ads,campaign_21,Random campaign name 11,2023-12-04 13:05:54,2023-12-04 13:05:54
+42,C3,B6,pinterest_ads,campaign_22,Random campaign name 12,2023-12-05 13:05:54,2023-12-05 13:05:54
+43,C3,B6,facebook_ads,campaign_23,Random campaign name 13,2023-12-06 13:05:54,2023-12-06 13:05:54
+44,C3,B6,facebook_ads,campaign_24,Random campaign name 14,2023-12-07 13:05:54,2023-12-07 13:05:54
+45,C3,B6,google_ads,campaign_25,Random campaign name 15,2023-12-08 13:05:54,2023-12-08 13:05:54
+46,C3,B6,google_ads,campaign_26,Random campaign name 16,2023-12-09 13:05:54,2023-12-09 13:05:54
+47,C3,B6,pinterest_ads,campaign_27,Random campaign name 17,2023-12-10 13:05:54,2023-12-10 13:05:54
+48,C3,B6,pinterest_ads,campaign_28,Random campaign name 18,2023-12-11 13:05:54,2023-12-11 13:05:54
+49,C3,B6,facebook_ads,campaign_29,Random campaign name 19,2023-12-12 13:05:54,2023-12-12 13:05:54
+50,C3,B6,google_ads,campaign_30,Random campaign name 20,2023-12-13 13:05:54,2023-12-13 13:05:54
