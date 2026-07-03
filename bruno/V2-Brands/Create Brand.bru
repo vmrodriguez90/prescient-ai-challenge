@@ -1,0 +1,22 @@
+meta {
+  name: Create Brand
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/v2/brands/:brand_id
+  body: json
+  auth: none
+}
+
+params:path {
+  brand_id: new_brand
+}
+
+body:json {
+  {
+    "wildcard": "%summer%",
+    "campaigns": ["campaign_123", "campaign_456"]
+  }
+}

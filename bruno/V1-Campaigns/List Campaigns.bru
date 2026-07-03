@@ -1,0 +1,19 @@
+meta {
+  name: List Campaigns
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v1/campaigns
+  body: none
+  auth: none
+}
+
+params:query {
+  ~brand_id: brand_001
+  ~platform_name: facebook
+  ~search: summer
+  ~company_id: company_001
+  ~apply_config: true
+}

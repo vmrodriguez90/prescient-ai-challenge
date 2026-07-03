@@ -1,0 +1,22 @@
+meta {
+  name: Update Brand
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/api/v2/brands/:brand_id
+  body: json
+  auth: none
+}
+
+params:path {
+  brand_id: brand_001
+}
+
+body:json {
+  {
+    "wildcard": "%winter%",
+    "campaigns": ["campaign_789"]
+  }
+}
