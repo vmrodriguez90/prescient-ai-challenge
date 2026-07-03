@@ -17,25 +17,22 @@ module Api
         campaigns = campaigns.where(company_id: params[:company_id])   if params[:company_id].present?
         campaigns = campaigns.where('campaign_name ILIKE ?', "%#{params[:search]}%") if params[:search].present?
 
-        exclusion_map = load_exclusion_config
-        apply_config    = params[:apply_config] == 'true'
-        exclusion_brand = params[:exclusion_brand]
+        apply_config = params[:apply_config] == 'true'
 
-        active_exclusions = if exclusion_brand.present?
-          exclusion_map.slice(exclusion_brand)
-        else
-          exclusion_map
+        if apply_config
+          exclusion_map = load_exclusion_config
+          excluded_ids = if params[:brand_id].present?
+            exclusion_map.fetch(params[:brand_id], [])
+          else
+            exclusion_map.values.flatten
+          end
+          campaigns = campaigns.where.not(campaign_id: excluded_ids) if excluded_ids.any?
         end
 
-        result = campaigns.order(:brand_id, :platform_name, :campaign_name).map do |c|
-          excluded = active_exclusions.fetch(c.brand_id, []).include?(c.campaign_id)
-          c.as_json.merge('excluded' => excluded)
-        end
-
-        result = result.reject { |c| c['excluded'] } if apply_config
+        result = campaigns.order(:brand_id, :platform_name, :campaign_name)
 
         render json: {
-          campaigns: result,
+          campaigns: result.as_json,
           meta: {
             total: result.size,
             config_applied: apply_config
@@ -45,7 +42,17 @@ module Api
 
       # GET /api/v1/campaigns/brands
       def brands
-        brands = Campaign.distinct.order(:brand_id).pluck(:brand_id)
+        brand_ids = Campaign.distinct.order(:brand_id).pluck(:brand_id)
+        rules_by_brand = InclusionRule.order(:wildcard).group_by(&:brand_id)
+
+        brands = brand_ids.map do |brand_id|
+          rules = rules_by_brand.fetch(brand_id, [])
+          {
+            brand_id: brand_id,
+            inclusion_rules: rules.map { |r| { id: r.id, wildcard: r.wildcard } }
+          }
+        end
+
         render json: { brands: brands }
       end
 

@@ -16,5 +16,8 @@ bundle exec rails db:prepare
 echo "Seeding database..."
 bundle exec rails db:seed
 
+echo "Starting cron daemon..."
+cron
+
 echo "Starting Rails server..."
 exec "$@"

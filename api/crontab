@@ -1,0 +1,1 @@
+0 0 * * * cd /app && bundle exec rails inclusions:sync >> /proc/1/fd/1 2>&1
