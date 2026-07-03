@@ -188,7 +188,7 @@ erDiagram
 | GET | `/api/v1/campaigns/platforms` | Unique platform names |
 | GET | `/api/v1/campaigns/exclusion_brands` | Brands with exclusion rules in YAML |
 
-**Common query params:** `brand_id`, `platform_name`, `apply_config=true`
+**Common query params:** `brand_id`, `platform_name`
 
 ### Startup Flow
 

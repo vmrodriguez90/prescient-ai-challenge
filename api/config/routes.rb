@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
 
     namespace :v2 do
+      get 'campaigns', to: 'campaigns#index'
       resources :brands, param: :brand_id, only: [:index, :show, :create, :update, :destroy]
     end
   end

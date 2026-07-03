@@ -9,7 +9,6 @@ module Api
       #   platform_name  - filter by platform
       #   company_id     - filter by company
       #   search         - filter by campaign name (case-insensitive)
-      #   apply_config   - "true" to hide excluded campaigns
       def index
         campaigns = Campaign.all
         campaigns = campaigns.where(brand_id: params[:brand_id])       if params[:brand_id].present?
@@ -17,25 +16,20 @@ module Api
         campaigns = campaigns.where(company_id: params[:company_id])   if params[:company_id].present?
         campaigns = campaigns.where('campaign_name ILIKE ?', "%#{params[:search]}%") if params[:search].present?
 
-        apply_config = params[:apply_config] == 'true'
-
-        if apply_config
-          exclusion_map = load_exclusion_config
-          excluded_ids = if params[:brand_id].present?
-            exclusion_map.fetch(params[:brand_id], [])
-          else
-            exclusion_map.values.flatten
-          end
-          campaigns = campaigns.where.not(campaign_id: excluded_ids) if excluded_ids.any?
+        exclusion_map = load_exclusion_config
+        excluded_ids = if params[:brand_id].present?
+          exclusion_map.fetch(params[:brand_id], [])
+        else
+          exclusion_map.values.flatten
         end
+        campaigns = campaigns.where.not(campaign_id: excluded_ids) if excluded_ids.any?
 
         result = campaigns.order(:brand_id, :platform_name, :campaign_name)
 
         render json: {
           campaigns: result.as_json,
           meta: {
-            total: result.size,
-            config_applied: apply_config
+            total: result.size
           }
         }
       end

@@ -49,7 +49,7 @@ api (Rails :3000)
 
 ```
 GET /health
-GET /api/v1/campaigns?brand_id=&platform_name=&search=&apply_config=true
+GET /api/v1/campaigns?brand_id=&platform_name=&search=
 GET /api/v1/campaigns/brands
 GET /api/v1/campaigns/platforms
 GET /api/v1/campaigns/exclusion_brands
@@ -58,6 +58,7 @@ GET /api/v1/campaigns/exclusion_brands
 ### v2 (inclusion-based)
 
 ```
+GET    /api/v2/campaigns               # list included campaigns (brand_id, platform_name, company_id, search)
 GET    /api/v2/brands                  # list all brands with inclusion rules + campaigns
 GET    /api/v2/brands/:brand_id        # show one brand
 POST   /api/v2/brands/:brand_id        # create brand with wildcard and/or campaigns
