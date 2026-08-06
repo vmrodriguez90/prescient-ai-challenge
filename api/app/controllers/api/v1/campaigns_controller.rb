@@ -16,13 +16,14 @@ module Api
         campaigns = campaigns.where(company_id: params[:company_id])   if params[:company_id].present?
         campaigns = campaigns.where('campaign_name ILIKE ?', "%#{params[:search]}%") if params[:search].present?
 
+        # Exclusions are per-brand: a campaign excluded for one brand must stay
+        # visible for others. Apply each brand's exclusions scoped to that brand
+        # (where.not with two conditions is a NAND: NOT (brand AND campaign)).
         exclusion_map = load_exclusion_config
-        excluded_ids = if params[:brand_id].present?
-          exclusion_map.fetch(params[:brand_id], [])
-        else
-          exclusion_map.values.flatten
+        exclusion_map.each do |bid, cids|
+          next if cids.blank?
+          campaigns = campaigns.where.not(brand_id: bid, campaign_id: cids)
         end
-        campaigns = campaigns.where.not(campaign_id: excluded_ids) if excluded_ids.any?
 
         result = campaigns.order(:brand_id, :platform_name, :campaign_name)
 

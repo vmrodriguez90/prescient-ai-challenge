@@ -18,7 +18,9 @@ Run both scripts from the **project root** directory.
 python3 scripts/migrate_exclusions_to_inclusions.py
 ```
 
-This reads `data/dim_campaign.csv` and `data/exclusion_config.yaml`, inverts the exclusion rules, and writes the result to `data/campaign_id_inclusions.csv`.
+This reads `data/dim_campaign.csv` and `data/exclusion_config.yaml`, inverts the exclusion rules, and writes the result to `data/campaign_id_inclusions.csv` with columns `company_id, brand_id, platform_name, campaign_id`.
+
+Inclusions are scoped per brand: a brand only ever includes campaigns it owns, minus its own exclusions. A campaign owned by one company is never assigned to a brand in another. The script exits non-zero if any brand would produce more inclusions than it owns.
 
 Custom paths can be specified:
 

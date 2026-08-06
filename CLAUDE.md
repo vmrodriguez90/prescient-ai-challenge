@@ -39,9 +39,9 @@ api (Rails :3000)
 
 ## Database Tables
 
-- `dim_campaigns` — campaign source of truth, seeded from CSV
+- `dim_campaigns` — campaign source of truth, seeded from CSV (unique on `brand_id, platform_name, campaign_id`)
 - `inclusion_rules` — one wildcard pattern per brand (unique on `brand_id`)
-- `campaign_id_inclusions` — materialized included campaigns (unique on `brand_id, platform_name, campaign_id`)
+- `campaign_id_inclusions` — materialized included campaigns; carries `company_id` (unique on `brand_id, platform_name, campaign_id`). A composite FK on `(company_id, brand_id, platform_name, campaign_id)` → `dim_campaigns` enforces that a brand can only include campaigns it actually owns, so cross-company/cross-brand leakage is impossible at the DB level.
 
 ## API Endpoints
 

@@ -25,8 +25,8 @@ except ImportError:
 
 INSERT_SQL = """
     INSERT INTO campaign_id_inclusions
-        (brand_id, platform_name, campaign_id, inclusion_rule_id, created_at, updated_at)
-    VALUES (%s, %s, %s, NULL, NOW(), NOW())
+        (company_id, brand_id, platform_name, campaign_id, inclusion_rule_id, created_at, updated_at)
+    VALUES (%s, %s, %s, %s, NULL, NOW(), NOW())
     ON CONFLICT (brand_id, platform_name, campaign_id) DO NOTHING
 """
 
@@ -35,7 +35,10 @@ def import_csv(conn, csv_path):
     """Read CSV and insert rows. Returns (total, inserted) counts."""
     with open(csv_path, newline="") as f:
         reader = csv.DictReader(f)
-        rows = [(r["brand_id"], r["platform_name"], r["campaign_id"]) for r in reader]
+        rows = [
+            (r["company_id"], r["brand_id"], r["platform_name"], r["campaign_id"])
+            for r in reader
+        ]
 
     total = len(rows)
     inserted = 0

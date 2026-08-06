@@ -6,7 +6,7 @@ class CreateInclusionRules < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
-    add_index :inclusion_rules, :brand_id
-    add_index :inclusion_rules, %i[brand_id wildcard], unique: true
+    # One inclusion rule per brand, so brand_id itself is unique.
+    add_index :inclusion_rules, :brand_id, unique: true, name: 'idx_inclusion_rules_brand_id_unique'
   end
 end
